@@ -1,0 +1,58 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.simplify {
+  padding: 10rem 3.2rem;
+  background-color: $bright-red;
+  text-align: center;
+  background-image: url("../../dist/images/bg-simplify-section-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: left center;
+
+  br {
+    display: none;
+
+    @include responsive-size(large) {
+      display: block;
+    }
+  }
+
+  @include responsive-size(large) {
+    background-image: url("../../dist/images/bg-simplify-section-desktop.svg");
+    background-position: 30rem 100%;
+    background-size: cover;
+  }
+
+  @include responsive-size(xlarge) {
+    padding: 10rem 0;
+  }
+
+  &__inner {
+    @include responsive-size(large) {
+      text-align: left;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__headline {
+    color: $white;
+    font-size: 3.5rem;
+    margin-bottom: 2.5rem;
+
+    @include responsive-size(large) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__button {
+    @include button($white, $bright-red);
+    box-shadow: none;
+
+    &:hover {
+      color: $dark-grayish-blue;
+      opacity: 0.9;
+    }
+  }
+}

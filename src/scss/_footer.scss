@@ -1,0 +1,173 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.footer {
+  padding: 5rem 2.5rem;
+  background-color: $very-dark-blue;
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "form form"
+      "nav-left nav-right"
+      "social social"
+      "logo logo"
+      "copyright copyright";
+    justify-items: center;
+
+    @include responsive-size(xlarge) {
+      padding-left: 0;
+      padding-right: 0;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-areas:
+        "logo nav-left nav-right form"
+        ". nav-left nav-right ."
+        "social nav-left nav-right copyright";
+      justify-items: start;
+    }
+  }
+
+  &__form {
+    grid-area: form;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 6rem;
+
+    @include responsive-size(xlarge) {
+      justify-self: end;
+    }
+
+    .input-group {
+      position: relative;
+    }
+
+    .error {
+      position: absolute;
+      bottom: -2.2rem;
+      left: 1.5rem;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 500;
+      opacity: 0;
+    }
+
+    .show-error {
+      opacity: 1;
+      color: $bright-red;
+    }
+
+    .show-success {
+      opacity: 1;
+      color: $very-pale-red;
+    }
+
+    .input-email {
+      padding: 1.2rem 2.5rem;
+      border: 0;
+      outline: 0;
+      border-radius: 5rem;
+      background-color: $white;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: $dark-blue;
+    }
+
+    .input-email::placeholder {
+      font-family: $font-main;
+    }
+
+    .submit-button {
+      align-self: flex-start;
+      @include button($bright-red, $very-light-gray);
+      padding: 0.9rem 3rem;
+      border-radius: 5rem;
+      box-shadow: none;
+    }
+  }
+
+  &__nav {
+    padding-left: 1rem;
+
+    @include responsive-size(xlarge) {
+      padding-left: 0;
+    }
+  }
+
+  &__nav-left {
+    grid-area: nav-left;
+  }
+
+  &__nav-right {
+    grid-area: nav-right;
+  }
+
+  &__link {
+    display: block;
+    color: $very-light-gray;
+    font-size: 1.5rem;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1.6rem;
+    }
+
+    &:hover {
+      color: $bright-red;
+    }
+  }
+
+  &__social {
+    grid-area: social;
+    text-align: center;
+    margin: 5rem 0 5rem 0;
+
+    @include responsive-size(xlarge) {
+      margin: 0;
+    }
+
+    &--icon {
+      font-size: 3rem;
+      color: $very-pale-red;
+
+      @include responsive-size(xlarge) {
+        font-size: 2rem;
+      }
+
+      &:not(:last-of-type) {
+        margin-right: 2rem;
+
+        @include responsive-size(xlarge) {
+          margin-right: 1rem;
+        }
+      }
+
+      &:hover {
+        color: $bright-red;
+      }
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    @include logo;
+    display: block;
+    margin: 0 auto 5rem auto;
+
+    @include responsive-size(xlarge) {
+      margin: 0;
+    }
+  }
+
+  &__copyright {
+    grid-area: copyright;
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+    color: $dark-grayish-blue;
+
+    @include responsive-size(xlarge) {
+      justify-self: end;
+    }
+  }
+}

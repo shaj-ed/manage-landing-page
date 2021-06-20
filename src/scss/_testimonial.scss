@@ -1,0 +1,94 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.testimonial-sec {
+  text-align: center;
+  padding-bottom: 4rem;
+  position: relative;
+  z-index: 100;
+
+  @include responsive-size(large) {
+    padding-bottom: 18rem;
+  }
+
+  &__inner {
+    overflow-x: hidden;
+  }
+
+  &__content {
+    width: fit-content;
+    margin-top: 12rem;
+    display: grid;
+    grid-template-columns: repeat(4, 100%);
+    position: relative;
+    left: -100%;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+
+    @include responsive-size(xlarge) {
+      left: -10%;
+      gap: 2rem;
+      grid-template-columns: repeat(4, 53.5rem);
+      transition: none;
+    }
+  }
+
+  &__dots {
+    margin: 2.5rem 0 4.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+
+    span {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+      border: 0.25rem solid $bright-red;
+      cursor: pointer;
+
+      &.active {
+        background-color: $bright-red;
+      }
+
+      @include responsive-size(xlarge) {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    @include button($bright-red, $very-light-gray);
+  }
+}
+
+// Main Testimonial
+.testimonial {
+  margin: 0 auto;
+  padding: 4.5rem 2.8rem;
+  background-color: $very-light-gray;
+  display: grid;
+  place-items: center;
+  border: 6px solid #fff;
+  pointer-events: none;
+
+  @include responsive-size(large) {
+    border: none;
+  }
+
+  &__person {
+    display: block;
+    width: 7.2rem;
+    height: 7.2rem;
+    margin-top: -8.5rem;
+    margin-bottom: 3rem;
+  }
+
+  &__name {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+  }
+}

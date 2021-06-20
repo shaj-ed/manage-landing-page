@@ -1,0 +1,99 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Features
+.features-sec {
+  text-align: center;
+  padding-bottom: 7.5rem;
+
+  br {
+    display: none;
+  }
+
+  @include responsive-size(large) {
+    padding-bottom: 16rem;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      background: url("../images/bg-tablet-pattern.svg") no-repeat left bottom;
+      bottom: -76%;
+      height: 130%;
+      left: -53%;
+      width: 100%;
+    }
+
+    br {
+      display: block;
+    }
+  }
+
+  &__top {
+    padding: 0 2.5rem;
+    margin-bottom: 5.5rem;
+
+    @include responsive-size(xlarge) {
+      padding: 0;
+    }
+  }
+
+  .description {
+    max-width: 32rem;
+    font-size: 1.4rem;
+    margin: 2.2rem auto 0 auto;
+
+    @include responsive-size(large) {
+      margin: 2.2rem 0 0 0;
+    }
+  }
+
+  .feature {
+    padding: 0 1.6rem 0 1.6rem;
+    text-align: left;
+
+    @include responsive-size(medium) {
+      margin-left: 5rem;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 5rem;
+    }
+
+    &__title {
+      font-size: 1.5rem;
+      padding: 1rem 0 1rem 0;
+      background-color: $very-light-gray;
+      margin-bottom: 1rem;
+
+      @include responsive-size(large) {
+        font-size: 1.8rem;
+        background-color: transparent;
+        margin-left: -10rem;
+      }
+    }
+
+    &__count {
+      padding: 0.8rem 2.5rem;
+      background-color: $bright-red;
+      color: $white;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border-radius: 4rem;
+      margin-right: 1rem;
+
+      @include responsive-size(large) {
+        font-size: 1.8rem;
+        margin-right: 3rem;
+      }
+    }
+
+    &__info {
+      max-width: 42rem;
+      font-size: 1.3rem;
+    }
+  }
+}

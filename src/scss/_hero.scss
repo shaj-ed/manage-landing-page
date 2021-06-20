@@ -1,0 +1,101 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// hero
+.hero {
+  padding: 1rem 3.2rem 10rem 3.2rem;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: url("../images/bg-tablet-pattern.svg") no-repeat top right /
+      contain;
+    height: 50rem;
+    position: absolute;
+    height: 100%;
+    position: absolute;
+    right: -27%;
+    top: -27%;
+    width: 111%;
+    z-index: -1;
+
+    @include responsive-size(large) {
+      height: 130%;
+      right: -28%;
+      top: -61%;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background: url("../images/bg-tablet-pattern.svg") no-repeat 100% 0 /
+      contain;
+    bottom: -49%;
+    height: 100%;
+    right: -65%;
+    width: 100%;
+    z-index: -1;
+
+    @include responsive-size(medium) {
+      display: none;
+    }
+  }
+
+  @include responsive-size(large) {
+    padding-top: 4rem;
+    padding-bottom: 12rem;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  @include responsive-size(xlarge) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__image {
+    max-width: 50rem;
+    margin: 0 auto 2.4rem auto;
+
+    img {
+      width: 100%;
+    }
+
+    @include responsive-size(large) {
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  &__headline {
+    font-size: 3.5rem;
+
+    @include responsive-size(medium) {
+      font-size: 5rem;
+    }
+  }
+
+  &__description {
+    font-size: 1.5rem;
+    max-width: 34rem;
+    margin: 1.5rem auto 3.2rem auto;
+
+    @include responsive-size(medium) {
+      margin: 3.5rem auto 4.5rem auto;
+    }
+
+    @include responsive-size(large) {
+      margin: 3.5rem 0 4.5rem 0;
+    }
+  }
+
+  &__button {
+    @include button($bright-red, $very-light-gray);
+  }
+}
