@@ -13,4 +13,4 @@ Users should be able to:
   - The `input` field is empty
   - The email address is not formatted correctly
 
-### Live Site
+## [Live Site](https://manage-landing-page-v.vercel.app/)
