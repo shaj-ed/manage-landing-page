@@ -16,7 +16,6 @@
   }
 
   &__content {
-    width: fit-content;
     margin-top: 12rem;
     display: grid;
     grid-template-columns: repeat(4, 100%);
@@ -26,6 +25,7 @@
     transition: all 0.3s ease-in-out;
 
     @include responsive-size(xlarge) {
+      width: fit-content;
       left: -10%;
       gap: 2rem;
       grid-template-columns: repeat(4, 53.5rem);

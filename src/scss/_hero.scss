@@ -10,7 +10,7 @@
   &::before {
     content: "";
     position: absolute;
-    background: url("../images/bg-tablet-pattern.svg") no-repeat top right /
+    background: url("../../dist/images/bg-tablet-pattern.svg") no-repeat top right /
       contain;
     height: 50rem;
     position: absolute;
@@ -31,7 +31,7 @@
   &::after {
     content: "";
     position: absolute;
-    background: url("../images/bg-tablet-pattern.svg") no-repeat 100% 0 /
+    background: url("../../dist/images/bg-tablet-pattern.svg") no-repeat 100% 0 /
       contain;
     bottom: -49%;
     height: 100%;
